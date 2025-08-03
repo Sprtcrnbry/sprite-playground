@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../views/HomePage.vue'
 import AboutPage from '../views/AboutPage.vue'
 import ContactPage from '../views/ContactPage.vue'
+import BlogPage from '../views/BlogPage.vue'
+import BlogPostPage from '../views/BlogPostPage.vue'
 import { getPageTitle } from '@/config/site'
 
 const routes = [
@@ -32,6 +34,24 @@ const routes = [
       transition: 'slide-down',
     },
   },
+  {
+    path: '/blog',
+    name: 'Blog',
+    component: BlogPage,
+    meta: {
+      title: getPageTitle('Blog'),
+      transition: 'slide-fade',
+    },
+  },
+  {
+    path: '/blog/:id',
+    name: 'BlogPost',
+    component: BlogPostPage,
+    meta: {
+      title: getPageTitle('Blog Post'),
+      transition: 'slide-fade',
+    },
+  },
 ]
 
 const router = createRouter({
@@ -55,7 +75,6 @@ const router = createRouter({
   },
 })
 
-// Update page title on route change
 router.afterEach((to) => {
   document.title = (to.meta.title as string) || getPageTitle()
 })

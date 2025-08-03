@@ -1,12 +1,20 @@
 <template>
-  <section id="features" class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+  <section
+    id="features"
+    ref="targetRef"
+    class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300"
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white animate-fade-in-1">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white transition-all duration-800 delay-100"
+          :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+        >
           Everything You Need
         </h2>
         <p
-          class="mt-4 text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto animate-fade-in-2"
+          class="mt-4 text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-all duration-800 delay-200"
+          :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
         >
           Powerful features designed to help you build better websites faster
         </p>
@@ -14,23 +22,30 @@
 
       <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div
-          v-for="feature in features"
+          v-for="(feature, index) in features"
           :key="feature.id"
-          class="bg-white dark:bg-gray-900 rounded-2xl shadow-sm hover:shadow-md dark:shadow-gray-900/20 dark:hover:shadow-gray-900/40 transition-shadow duration-300 overflow-hidden animate-fade-in-3"
+          class="bg-white dark:bg-gray-900 rounded-2xl shadow-sm hover:shadow-md dark:shadow-gray-900/20 dark:hover:shadow-gray-900/40 transition-all duration-300 overflow-hidden"
+          :class="[
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8',
+            `transition-all duration-800`,
+          ]"
+          :style="{
+            transitionDelay: isVisible ? `${300 + index * 100}ms` : `${100 - index * 50}ms`,
+          }"
         >
           <!-- Image Section -->
           <div
             class="h-48 bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-900/30 dark:to-primary-800/30 relative overflow-hidden"
           >
             <img :src="feature.image" :alt="feature.title" class="w-full h-full object-cover" />
-            <!-- Direct SVG icons based on type -->
+            <!-- Icon overlay - Fixed -->
             <div
               class="absolute bottom-4 left-4 w-12 h-12 bg-white/90 dark:bg-gray-800/90 rounded-lg flex items-center justify-center backdrop-blur-sm"
             >
               <!-- Rocket Icon -->
               <svg
                 v-if="feature.iconType === 'rocket'"
-                class="w-6 h-6 text-primary-600"
+                class="w-6 h-6 text-primary-600 dark:text-primary-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -42,10 +57,11 @@
                   d="M13 10V3L4 14h7v7l9-11h-7z"
                 />
               </svg>
+
               <!-- Shield Icon -->
               <svg
                 v-else-if="feature.iconType === 'shield'"
-                class="w-6 h-6 text-primary-600"
+                class="w-6 h-6 text-primary-600 dark:text-primary-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -57,10 +73,11 @@
                   d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                 />
               </svg>
+
               <!-- Cog Icon -->
               <svg
                 v-else-if="feature.iconType === 'cog'"
-                class="w-6 h-6 text-primary-600"
+                class="w-6 h-6 text-primary-600 dark:text-primary-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -76,6 +93,22 @@
                   stroke-linejoin="round"
                   stroke-width="2"
                   d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+
+              <!-- Default/Fallback Icon -->
+              <svg
+                v-else
+                class="w-6 h-6 text-primary-600 dark:text-primary-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
                 />
               </svg>
             </div>
@@ -98,12 +131,16 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useScrollAnimation } from '@/composables/useScrollAnimation'
+
+// Use scroll animation with hide-on-scroll-up enabled (true by default)
+const { isVisible, targetRef } = useScrollAnimation(0.1, true)
 
 interface Feature {
   id: number
   title: string
   description: string
-  iconType: string // Changed from 'icon' to 'iconType'
+  iconType: string
   image: string
 }
 

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Welcome to ModernSite Blog",
+    "excerpt": "We're excited to share our journey and insights about modern web development with you.",
+    "content": "<p>Welcome to the ModernSite blog! This is where we'll share our thoughts, tutorials, and insights about modern web development.</p><p>We'll cover topics like Vue.js, TypeScript, Tailwind CSS, and the latest trends in frontend development. Stay tuned for exciting content!</p>",
+    "date": "2025-08-01",
+    "author": "ModernSite Team",
+    "tags": ["announcement", "welcome"],
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Building Responsive UIs with Tailwind CSS",
+    "excerpt": "Learn how to create beautiful, responsive interfaces using Tailwind's utility-first approach.",
+    "content": "<p>Tailwind CSS has revolutionized how we think about styling web applications. Its utility-first approach allows for rapid development while maintaining consistency.</p><p>In this post, we'll explore some advanced techniques for building responsive layouts that work perfectly across all devices.</p>",
+    "date": "2025-07-28",
+    "author": "Sarah Chen",
+    "tags": ["tailwind", "css", "responsive", "tutorial"],
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "Vue 3 Composition API Best Practices",
+    "excerpt": "Discover the power of Vue 3's Composition API and how to structure your components effectively.",
+    "content": "<p>The Vue 3 Composition API offers a more flexible way to organize component logic. It's particularly powerful for complex components and code reuse.</p><p>We'll dive into best practices, common patterns, and how to migrate from the Options API.</p>",
+    "date": "2025-07-15",
+    "author": "Mike Rodriguez",
+    "tags": ["vue", "composition-api", "javascript", "tutorial"],
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "Dark Mode Implementation Guide",
+    "excerpt": "Step-by-step guide to implementing a beautiful dark mode in your Vue application.",
+    "content": "<p>Dark mode has become an essential feature for modern web applications. Users expect seamless switching between light and dark themes.</p><p>This guide covers implementation strategies, best practices for color schemes, and how to maintain accessibility standards.</p>",
+    "date": "2025-07-10",
+    "author": "Emily Zhang",
+    "tags": ["dark-mode", "ui", "accessibility", "tutorial"],
+    "featured": false
+  }
+]
