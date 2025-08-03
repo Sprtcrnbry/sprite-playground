@@ -7,14 +7,14 @@
     "node": "^20.19.0 || >=22.12.0"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
-    "test:unit": "vitest",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --build",
-    "lint": "eslint . --fix",
-    "format": "prettier --write src/"
+    "dev": "bun --hot vite",
+    "build": "bun run type-check && bun run build-only",
+    "preview": "bun vite preview",
+    "test:unit": "bun test",
+    "build-only": "bun vite build",
+    "type-check": "bun vue-tsc --build",
+    "lint": "bun eslint . --fix",
+    "format": "bun prettier --write src/"
   },
   "dependencies": {
     "pinia": "^3.0.3",
