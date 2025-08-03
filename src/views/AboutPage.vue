@@ -5,7 +5,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
           <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-fade-in-1">
-            About <span class="text-primary-600">ModernSite</span>
+            About <span class="text-primary-600">{{ siteConfig.name }}</span>
           </h1>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-2">
             We're passionate about building the future of web development, one innovative solution
@@ -21,9 +21,10 @@
         <div class="prose prose-lg mx-auto">
           <h2 class="text-3xl font-bold text-gray-900 mb-8 animate-fade-in-3">Our Story</h2>
           <p class="text-gray-600 mb-6 animate-fade-in-4">
-            Founded in 2024, ModernSite emerged from a simple belief: web development should be
-            accessible, powerful, and enjoyable. Our team of experienced developers and designers
-            came together to create tools that bridge the gap between complexity and usability.
+            Founded in 2024, {{ siteConfig.name }} emerged from a simple belief: web development
+            should be accessible, powerful, and enjoyable. Our team of experienced developers and
+            designers came together to create tools that bridge the gap between complexity and
+            usability.
           </p>
           <p class="text-gray-600 mb-6 animate-fade-in-5">
             We've helped over 50,000 developers and businesses create stunning websites using modern
@@ -47,7 +48,7 @@
         <div class="text-center mb-16">
           <h2 class="text-3xl font-bold text-gray-900 animate-fade-in-3">Meet Our Team</h2>
           <p class="mt-4 text-xl text-gray-600 animate-fade-in-4">
-            The passionate people behind ModernSite
+            The passionate people behind {{ siteConfig.name }}
           </p>
         </div>
 
@@ -92,6 +93,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { siteConfig } from '@/config/site'
 
 interface TeamMember {
   id: number
