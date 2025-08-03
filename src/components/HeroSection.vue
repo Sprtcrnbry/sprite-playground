@@ -1,8 +1,8 @@
 <template>
-  <!-- Use min-h-0 and let content determine height -->
+  <!-- Reduce top padding especially on mobile -->
   <section
     id="home"
-    class="relative bg-gradient-to-br from-rose-50 via-white to-amber-50 pt-20 sm:pt-16 md:pt-20 lg:pt-24 pb-8 sm:pb-12 md:pb-16 lg:pb-20"
+    class="relative bg-gradient-to-br from-rose-50 via-white to-amber-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-10 sm:pt-12 md:pt-16 lg:pt-20 pb-8 sm:pb-12 md:pb-16 lg:pb-20 transition-colors duration-300"
   >
     <!-- Decorative background elements -->
     <div class="absolute inset-0 overflow-hidden">
@@ -24,7 +24,7 @@
         <div class="lg:col-span-6 lg:pr-6">
           <!-- Personal greeting -->
           <div
-            class="inline-flex items-center bg-rose-100 text-rose-800 px-3 py-1.5 rounded-full text-sm font-medium mb-3 animate-fade-in"
+            class="inline-flex items-center bg-rose-100 dark:bg-rose-900/30 text-rose-800 dark:text-rose-300 px-3 py-1.5 rounded-full text-sm font-medium mb-3 animate-fade-in"
           >
             <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path
@@ -39,7 +39,7 @@
 
           <!-- Compact heading -->
           <h1
-            class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 leading-tight animate-slide-up"
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight animate-slide-up"
           >
             Hi, I'm building
             <span
@@ -51,7 +51,9 @@
           </h1>
 
           <!-- Shorter description -->
-          <p class="mt-3 text-base sm:text-lg text-gray-600 leading-relaxed animate-slide-up-delay">
+          <p
+            class="mt-3 text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed animate-slide-up-delay"
+          >
             I'm passionate about creating beautiful, functional websites that make a real
             difference. Let me share my journey in web development.
           </p>
@@ -96,27 +98,27 @@
           <div class="mt-6 grid grid-cols-3 gap-4 animate-fade-in-up">
             <div class="text-center group">
               <div
-                class="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-rose-600 transition-colors"
+                class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
               >
                 3+
               </div>
-              <div class="text-xs text-gray-600 mt-0.5">Years Learning</div>
+              <div class="text-xs text-gray-600 dark:text-gray-400 mt-0.5">Years Learning</div>
             </div>
             <div class="text-center group">
               <div
-                class="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors"
+                class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
               >
                 15+
               </div>
-              <div class="text-xs text-gray-600 mt-0.5">Projects Built</div>
+              <div class="text-xs text-gray-600 dark:text-gray-400 mt-0.5">Projects Built</div>
             </div>
             <div class="text-center group">
               <div
-                class="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-indigo-600 transition-colors"
+                class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
               >
                 ∞
               </div>
-              <div class="text-xs text-gray-600 mt-0.5">Coffee Cups</div>
+              <div class="text-xs text-gray-600 dark:text-gray-400 mt-0.5">Coffee Cups</div>
             </div>
           </div>
 
@@ -124,7 +126,9 @@
           <div class="mt-4 flex items-center text-sm animate-pulse-status">
             <div class="flex items-center">
               <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse mr-3"></div>
-              <span class="text-gray-600">Currently available for new projects</span>
+              <span class="text-gray-600 dark:text-gray-400"
+                >Currently available for new projects</span
+              >
             </div>
           </div>
         </div>
@@ -146,7 +150,7 @@
 
               <!-- Very compact card -->
               <div
-                class="relative bg-white/70 backdrop-blur-sm p-4 sm:p-5 rounded-3xl shadow-2xl border border-white/50 hover:shadow-3xl transition-shadow duration-500"
+                class="relative bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm p-4 sm:p-5 rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700/50 hover:shadow-3xl transition-shadow duration-500"
               >
                 <!-- Small profile section -->
                 <div class="mb-3 text-center">
@@ -164,30 +168,36 @@
                     </div>
                   </div>
                   <div class="mt-2">
-                    <h3 class="text-sm sm:text-base font-semibold text-gray-900">Sprite Night</h3>
-                    <p class="text-rose-600 font-medium text-xs sm:text-sm">Web Developer</p>
+                    <h3 class="text-sm sm:text-base font-semibold text-gray-900 dark:text-white">
+                      Sprite Night
+                    </h3>
+                    <p class="text-rose-600 dark:text-rose-400 font-medium text-xs sm:text-sm">
+                      Web Developer
+                    </p>
                   </div>
                 </div>
 
                 <!-- Mini tech stack -->
                 <div class="space-y-2">
                   <div class="text-center">
-                    <p class="text-xs font-medium text-gray-700 mb-2">Currently working with:</p>
+                    <p class="text-xs font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Currently working with:
+                    </p>
                   </div>
 
                   <div class="flex flex-wrap gap-1 justify-center">
                     <span
-                      class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
+                      class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300"
                     >
                       Vue.js
                     </span>
                     <span
-                      class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-cyan-100 text-cyan-800"
+                      class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-cyan-100 dark:bg-cyan-900/30 text-cyan-800 dark:text-cyan-300"
                     >
                       TypeScript
                     </span>
                     <span
-                      class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800"
+                      class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300"
                     >
                       Tailwind
                     </span>
@@ -195,9 +205,9 @@
 
                   <!-- Mini quote -->
                   <div
-                    class="mt-2 p-2 bg-gradient-to-r from-rose-50 to-amber-50 rounded-xl border-l-3 border-rose-300"
+                    class="mt-2 p-2 bg-gradient-to-r from-rose-50 to-amber-50 dark:from-rose-900/20 dark:to-amber-900/20 rounded-xl border-l-3 border-rose-300 dark:border-rose-600"
                   >
-                    <p class="text-xs italic text-gray-700 text-center">
+                    <p class="text-xs italic text-gray-700 dark:text-gray-300 text-center">
                       "Building the web, one component at a time ✨"
                     </p>
                   </div>

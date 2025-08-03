@@ -1,13 +1,15 @@
 <template>
-  <div class="min-h-screen bg-gray-50">
+  <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <!-- Hero Section -->
-    <section class="bg-white py-20">
+    <section class="bg-white dark:bg-gray-800 py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-fade-in-1">
-            Get In <span class="text-primary-600">Touch</span>
+          <h1
+            class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 animate-fade-in-1"
+          >
+            Get In <span class="text-primary-600 dark:text-primary-400">Touch</span>
           </h1>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-2">
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto animate-fade-in-2">
             Have questions? We'd love to hear from you. Send us a message and we'll respond as soon
             as possible.
           </p>
@@ -20,11 +22,14 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <!-- Contact Form -->
-          <div class="bg-white rounded-2xl shadow-sm p-8 animate-fade-in-3">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Send us a message</h2>
+          <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-8 animate-fade-in-3">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send us a message</h2>
             <form @submit.prevent="submitForm" class="space-y-6">
               <div class="animate-fade-in-4">
-                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  for="name"
+                  class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
                   Name
                 </label>
                 <input
@@ -32,7 +37,7 @@
                   v-model="form.name"
                   type="text"
                   required
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                  class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                   placeholder="Your full name"
                 />
               </div>
@@ -46,7 +51,7 @@
                   v-model="form.email"
                   type="email"
                   required
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                  class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -60,7 +65,7 @@
                   v-model="form.subject"
                   type="text"
                   required
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                  class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                   placeholder="What is this about?"
                 />
               </div>
@@ -74,7 +79,7 @@
                   v-model="form.message"
                   rows="6"
                   required
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors resize-none"
+                  class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors resize-none"
                   placeholder="Tell us more about your inquiry..."
                 ></textarea>
               </div>
@@ -91,13 +96,15 @@
 
           <!-- Contact Info -->
           <div class="space-y-8">
-            <div class="bg-white rounded-2xl shadow-sm p-8 animate-fade-in-4">
-              <h3 class="text-xl font-semibold text-gray-900 mb-6">Contact Information</h3>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-8 animate-fade-in-4">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+                Contact Information
+              </h3>
 
               <div class="space-y-4">
                 <div class="flex items-start space-x-4">
                   <svg
-                    class="w-6 h-6 text-primary-600 mt-1"
+                    class="w-6 h-6 text-primary-600 dark:text-primary-400 mt-1"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -110,14 +117,14 @@
                     />
                   </svg>
                   <div>
-                    <p class="font-medium text-gray-900">Email</p>
-                    <p class="text-gray-600">{{ siteConfig.email }}</p>
+                    <p class="font-medium text-gray-900 dark:text-white">Email</p>
+                    <p class="text-gray-600 dark:text-gray-300">{{ siteConfig.email }}</p>
                   </div>
                 </div>
 
                 <div class="flex items-start space-x-4">
                   <svg
-                    class="w-6 h-6 text-primary-600 mt-1"
+                    class="w-6 h-6 text-primary-600 dark:text-primary-400 mt-1"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -130,8 +137,8 @@
                     />
                   </svg>
                   <div>
-                    <p class="font-medium text-gray-900">Phone</p>
-                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                    <p class="font-medium text-gray-900 dark:text-white">Phone</p>
+                    <p class="text-gray-600 dark:text-gray-300">+1 (555) 123-4567</p>
                   </div>
                 </div>
 
@@ -156,16 +163,20 @@
                     />
                   </svg>
                   <div>
-                    <p class="font-medium text-gray-900">Office</p>
-                    <p class="text-gray-600">123 Tech Street<br />San Francisco, CA 94107</p>
+                    <p class="font-medium text-gray-900 dark:text-white">Office</p>
+                    <p class="text-gray-600 dark:text-gray-300">
+                      123 Tech Street<br />San Francisco, CA 94107
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-sm p-8 animate-fade-in-5">
-              <h3 class="text-xl font-semibold text-gray-900 mb-4">Response Time</h3>
-              <p class="text-gray-600">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-8 animate-fade-in-5">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                Response Time
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300">
                 We typically respond to all inquiries within 24 hours. For urgent matters, please
                 call us directly.
               </p>

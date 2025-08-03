@@ -1,12 +1,12 @@
 <template>
-  <header class="bg-white shadow-sm sticky top-0 z-50 transition-all duration-300">
+  <header class="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50 transition-all duration-300">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
-        <!-- Logo -->
+        <!-- Logo with black color -->
         <div class="flex-shrink-0">
           <RouterLink
             to="/"
-            class="text-2xl font-bold text-primary-600 transition-colors hover:text-primary-700"
+            class="text-2xl font-bold text-black dark:text-white transition-colors hover:text-gray-700 dark:hover:text-gray-300"
           >
             {{ siteConfig.name }}
           </RouterLink>
@@ -26,11 +26,10 @@
               ></span>
             </RouterLink>
 
-            <!-- Always show Features button, but handle navigation differently -->
             <a
               href="#features"
               @click="handleFeaturesClick"
-              class="text-gray-500 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors relative group"
+              class="text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors relative group"
             >
               Features
               <span
@@ -62,16 +61,77 @@
           </div>
         </div>
 
-        <!-- CTA Button -->
-        <div class="hidden md:block">
+        <!-- Dark mode toggle and CTA -->
+        <div class="hidden md:flex items-center space-x-4">
+          <!-- Dark Mode Toggle -->
+          <button
+            @click="toggleDarkMode"
+            class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+          >
+            <!-- Sun icon for light mode -->
+            <svg
+              v-if="isDark"
+              class="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              />
+            </svg>
+            <!-- Moon icon for dark mode -->
+            <svg v-else class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              />
+            </svg>
+          </button>
+
           <RouterLink to="/contact" class="btn-primary"> Get Started </RouterLink>
         </div>
 
         <!-- Mobile menu button -->
-        <div class="md:hidden">
+        <div class="md:hidden flex items-center space-x-2">
+          <!-- Mobile dark mode toggle -->
+          <button
+            @click="toggleDarkMode"
+            class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
+            <svg
+              v-if="isDark"
+              class="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              />
+            </svg>
+            <svg v-else class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              />
+            </svg>
+          </button>
+
           <button
             @click="mobileMenuOpen = !mobileMenuOpen"
-            class="text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 p-2 transition-colors"
+            class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white focus:outline-none p-2 transition-colors"
           >
             <svg
               class="h-6 w-6 transition-transform duration-200"
@@ -109,32 +169,33 @@
         leave-to-class="opacity-0 transform -translate-y-4"
       >
         <div v-show="mobileMenuOpen" class="md:hidden">
-          <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200 bg-white">
+          <div
+            class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"
+          >
             <RouterLink
               to="/"
-              class="block px-3 py-2 text-base font-medium rounded-lg transition-colors hover:bg-gray-50"
+              class="block px-3 py-2 text-base font-medium rounded-lg transition-colors hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-900 dark:text-white"
               @click="mobileMenuOpen = false"
             >
               Home
             </RouterLink>
-            <!-- Features link for mobile -->
             <a
               href="#features"
               @click="handleFeaturesClick"
-              class="block px-3 py-2 text-base font-medium rounded-lg transition-colors hover:bg-gray-50"
+              class="block px-3 py-2 text-base font-medium rounded-lg transition-colors hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-900 dark:text-white"
             >
               Features
             </a>
             <RouterLink
               to="/about"
-              class="block px-3 py-2 text-base font-medium rounded-lg transition-colors hover:bg-gray-50"
+              class="block px-3 py-2 text-base font-medium rounded-lg transition-colors hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-900 dark:text-white"
               @click="mobileMenuOpen = false"
             >
               About
             </RouterLink>
             <RouterLink
               to="/contact"
-              class="block px-3 py-2 text-base font-medium rounded-lg transition-colors hover:bg-gray-50"
+              class="block px-3 py-2 text-base font-medium rounded-lg transition-colors hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-900 dark:text-white"
               @click="mobileMenuOpen = false"
             >
               Contact
@@ -157,32 +218,32 @@
 import { ref } from 'vue'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 import { siteConfig } from '@/config/site'
+import { useDarkMode } from '@/composables/useDarkMode'
 
 const route = useRoute()
 const router = useRouter()
 const mobileMenuOpen = ref(false)
 
+// Dark mode composable
+const { isDark, toggleDarkMode } = useDarkMode()
+
 const getNavLinkClass = (routeName: string) => {
   return route.name === routeName
-    ? 'text-gray-900 font-semibold'
-    : 'text-gray-500 hover:text-primary-600'
+    ? 'text-gray-900 dark:text-white font-semibold'
+    : 'text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400'
 }
 
-// Handle Features navigation - go to home if not there, then scroll
 const handleFeaturesClick = (event: Event) => {
   event.preventDefault()
   mobileMenuOpen.value = false
 
-  // If we're not on the home page, navigate there first
   if (route.name !== 'Home') {
     router.push('/').then(() => {
-      // Wait a bit for the page to load, then scroll
       setTimeout(() => {
         scrollToFeatures()
       }, 100)
     })
   } else {
-    // If we're already on home page, just scroll
     scrollToFeatures()
   }
 }

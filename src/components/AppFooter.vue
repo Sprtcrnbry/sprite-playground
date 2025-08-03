@@ -1,15 +1,23 @@
 <template>
-  <footer class="bg-gray-900 text-white">
+  <footer
+    class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300"
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <!-- Brand -->
         <div class="md:col-span-1">
-          <h3 class="text-2xl font-bold text-primary-400">{{ siteConfig.name }}</h3>
-          <p class="mt-4 text-gray-400">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
+            {{ siteConfig.name }}
+          </h3>
+          <p class="mt-4 text-gray-700 dark:text-gray-300">
             {{ siteConfig.description }}
           </p>
           <div class="mt-6 flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors">
+            <!-- Twitter Icon -->
+            <a
+              href="#"
+              class="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+            >
               <span class="sr-only">Twitter</span>
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -17,7 +25,11 @@
                 />
               </svg>
             </a>
-            <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors">
+            <!-- GitHub Icon -->
+            <a
+              href="#"
+              class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            >
               <span class="sr-only">GitHub</span>
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -32,46 +44,90 @@
 
         <!-- Links -->
         <div>
-          <h4 class="text-lg font-semibold">Product</h4>
-          <ul class="mt-4 space-y-2">
+          <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Product</h4>
+          <ul class="space-y-2">
             <li>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors">Features</a>
+              <a
+                href="#"
+                class="text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >Features</a
+              >
             </li>
             <li>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors">Pricing</a>
+              <a
+                href="#"
+                class="text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >Pricing</a
+              >
             </li>
             <li>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors">Documentation</a>
+              <a
+                href="#"
+                class="text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >Documentation</a
+              >
             </li>
           </ul>
         </div>
 
         <div>
-          <h4 class="text-lg font-semibold">Company</h4>
-          <ul class="mt-4 space-y-2">
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+          <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Company</h4>
+          <ul class="space-y-2">
             <li>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a>
+              <a
+                href="#"
+                class="text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >Blog</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >Careers</a
+              >
             </li>
           </ul>
         </div>
 
         <div>
-          <h4 class="text-lg font-semibold">Support</h4>
-          <ul class="mt-4 space-y-2">
+          <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Support</h4>
+          <ul class="space-y-2">
             <li>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors">Help Center</a>
+              <a
+                href="#"
+                class="text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >Help Center</a
+              >
             </li>
             <li>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+              <a
+                href="#"
+                class="text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >Contact</a
+              >
             </li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Status</a></li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >Status</a
+              >
+            </li>
           </ul>
         </div>
       </div>
 
-      <div class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
+      <div
+        class="mt-12 pt-8 border-t border-gray-300 dark:border-gray-700 text-center text-gray-600 dark:text-gray-400 transition-colors"
+      >
         <p>&copy; 2025 Sprite. All rights reserved.</p>
       </div>
     </div>
