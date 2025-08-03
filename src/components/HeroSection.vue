@@ -1,45 +1,22 @@
 <template>
-  <!-- Reduce top padding especially on mobile -->
   <section
     id="home"
     class="relative bg-gradient-to-br from-rose-50 via-white to-amber-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-10 sm:pt-12 md:pt-16 lg:pt-20 pb-8 sm:pb-12 md:pb-16 lg:pb-20 transition-colors duration-300"
   >
-    <!-- Decorative background elements -->
-    <div class="absolute inset-0 overflow-hidden">
-      <div
-        class="absolute -top-40 -right-32 w-80 h-80 bg-rose-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob"
-      ></div>
-      <div
-        class="absolute -bottom-32 -left-40 w-72 h-72 bg-amber-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"
-      ></div>
-      <div
-        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-200/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"
-      ></div>
-    </div>
-
-    <!-- Much more compact content -->
     <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
-        <!-- Left Content - Significantly reduced spacing -->
-        <div class="lg:col-span-6 lg:pr-6">
+        <!-- Left Content - Add proper alignment classes -->
+        <div class="lg:col-span-6 lg:pr-6 text-center lg:text-left">
           <!-- Personal greeting -->
           <div
-            class="inline-flex items-center bg-rose-100 dark:bg-rose-900/30 text-rose-800 dark:text-rose-300 px-3 py-1.5 rounded-full text-sm font-medium mb-3 animate-fade-in"
+            class="inline-flex items-center bg-rose-100 dark:bg-rose-900/30 text-rose-800 dark:text-rose-300 px-3 py-1.5 rounded-full text-sm font-medium mb-2 sm:mb-3"
           >
-            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1M9 16v-4a2 2 0 012-2h2a2 2 0 012 2v4M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              />
-            </svg>
             👋 Welcome to my corner of the web
           </div>
 
-          <!-- Compact heading -->
+          <!-- Main heading -->
           <h1
-            class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight animate-slide-up"
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight"
           >
             Hi, I'm building
             <span
@@ -50,16 +27,16 @@
             with modern web tech
           </h1>
 
-          <!-- Shorter description -->
+          <!-- Description -->
           <p
-            class="mt-3 text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed animate-slide-up-delay"
+            class="mt-2 sm:mt-3 text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed"
           >
             I'm passionate about creating beautiful, functional websites that make a real
             difference. Let me share my journey in web development.
           </p>
 
-          <!-- Compact buttons -->
-          <div class="mt-4 flex flex-col sm:flex-row gap-3 animate-slide-up-delay-2">
+          <!-- Buttons - REMOVED animate-slide-up-delay-2 -->
+          <div class="mt-3 sm:mt-4 flex flex-col sm:flex-row gap-3">
             <RouterLink to="/about" class="btn-primary group">
               <span>Learn About Me</span>
               <svg
@@ -94,8 +71,8 @@
             </a>
           </div>
 
-          <!-- Compact stats -->
-          <div class="mt-6 grid grid-cols-3 gap-4 animate-fade-in-up">
+          <!-- Stats - REMOVED animate-fade-in-up -->
+          <div class="mt-4 sm:mt-6 grid grid-cols-3 gap-4">
             <div class="text-center group">
               <div
                 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
@@ -106,7 +83,7 @@
             </div>
             <div class="text-center group">
               <div
-                class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
+                class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
               >
                 15+
               </div>
@@ -114,7 +91,7 @@
             </div>
             <div class="text-center group">
               <div
-                class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors"
+                class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
               >
                 ∞
               </div>
@@ -123,7 +100,7 @@
           </div>
 
           <!-- Current status -->
-          <div class="mt-4 flex items-center text-sm animate-pulse-status">
+          <div class="mt-3 sm:mt-4 flex items-center text-sm">
             <div class="flex items-center">
               <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse mr-3"></div>
               <span class="text-gray-600 dark:text-gray-400"

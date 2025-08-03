@@ -1,10 +1,16 @@
 <template>
   <Transition name="page-fade" mode="out-in" @enter="onEnter">
-    <slot />
+    <div :key="$route.fullPath" class="page-content">
+      <slot />
+    </div>
   </Transition>
 </template>
 
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
+
+const $route = useRoute()
+
 const onEnter = () => {
   window.scrollTo(0, 0)
 }
