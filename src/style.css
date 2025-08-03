@@ -1,0 +1,157 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-rose-600 to-purple-600 hover:from-rose-700 hover:to-purple-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 flex items-center justify-center transform hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply bg-white/70 backdrop-blur-sm hover:bg-white/90 text-gray-900 font-medium py-3 px-6 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 border border-gray-200/50 flex items-center justify-center transform hover:scale-105;
+  }
+}
+
+@layer utilities {
+  /* Existing animations */
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Simple CSS-only animation classes */
+  .animate-fade-in-1 {
+    animation: slideUp 0.6s ease-out 0.1s both;
+  }
+
+  .animate-fade-in-2 {
+    animation: slideUp 0.6s ease-out 0.2s both;
+  }
+
+  .animate-fade-in-3 {
+    animation: slideUp 0.6s ease-out 0.3s both;
+  }
+
+  .animate-fade-in-4 {
+    animation: slideUp 0.6s ease-out 0.4s both;
+  }
+
+  .animate-fade-in-5 {
+    animation: slideUp 0.6s ease-out 0.5s both;
+  }
+
+  .animate-fade-in-6 {
+    animation: slideUp 0.6s ease-out 0.6s both;
+  }
+
+  .animate-fade-in-7 {
+    animation: slideUp 0.6s ease-out 0.7s both;
+  }
+
+  .animate-fade-in-8 {
+    animation: slideUp 0.6s ease-out 0.8s both;
+  }
+
+  /* Existing animations */
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+
+  .animate-slide-up-delay {
+    animation: slideUp 0.8s ease-out 0.2s both;
+  }
+
+  .animate-slide-up-delay-2 {
+    animation: slideUp 0.8s ease-out 0.4s both;
+  }
+
+  .animate-fade-in-up {
+    animation: slideUp 1s ease-out 0.6s both;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-pulse-status {
+    animation: fadeIn 1s ease-out 0.8s both;
+  }
+
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
