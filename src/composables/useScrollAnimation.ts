@@ -19,12 +19,11 @@ export function useScrollAnimation(threshold: number = 0.1, hideOnScrollUp: bool
             // Element is going out of view and hideOnScrollUp is enabled
             isVisible.value = false
           }
-          // If hideOnScrollUp is false, we keep isVisible as true once it's been seen
         })
       },
       {
         threshold,
-        rootMargin: '50px 0px -50px 0px', // More precise control over when animation triggers
+        rootMargin: '50px 0px -50px 0px',
       },
     )
 

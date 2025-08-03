@@ -3,14 +3,16 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2
-          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-all duration-800 delay-100"
-          :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-all duration-1000 ease-out"
+          :class="[isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8']"
+          :style="{ transitionDelay: isVisible ? '200ms' : '0ms' }"
         >
           Latest from Our Blog
         </h2>
         <p
-          class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-all duration-800 delay-200"
-          :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+          class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-all duration-1000 ease-out"
+          :class="[isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8']"
+          :style="{ transitionDelay: isVisible ? '400ms' : '0ms' }"
         >
           Stay updated with our latest insights, tutorials, and thoughts on modern web development
         </p>
@@ -31,16 +33,13 @@
         <article
           v-for="(post, index) in latestPosts"
           :key="post.id"
-          class="bg-white dark:bg-gray-900 rounded-2xl shadow-sm hover:shadow-md dark:shadow-gray-900/20 dark:hover:shadow-gray-900/40 transition-all duration-300 overflow-hidden group"
+          class="bg-white dark:bg-gray-900 rounded-2xl shadow-sm hover:shadow-md dark:shadow-gray-900/20 dark:hover:shadow-gray-900/40 overflow-hidden group"
           :class="[
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8',
-            'transition-all duration-800',
+            'transition-all duration-1000 ease-out',
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12',
           ]"
-          :style="{
-            transitionDelay: isVisible ? `${300 + index * 150}ms` : `${150 - index * 75}ms`,
-          }"
+          :style="getBlogPostStyle(index)"
         >
-          <!-- Your existing blog post content -->
           <div v-if="post.featured" class="px-6 pt-6">
             <span
               class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300"
@@ -107,9 +106,9 @@
       </div>
 
       <div
-        class="text-center transition-all duration-800"
-        :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
-        :style="{ transitionDelay: isVisible ? '700ms' : '0ms' }"
+        class="text-center transition-all duration-1000 ease-out"
+        :class="[isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8']"
+        :style="{ transitionDelay: isVisible ? '1800ms' : '0ms' }"
       >
         <RouterLink to="/blog" class="inline-flex items-center btn-primary">
           View All Posts
@@ -131,14 +130,31 @@
 import { onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useBlog } from '@/composables/useBlog'
-import { useScrollAnimation } from '@/composables/useScrollAnimation'
+import { useScrollStagger } from '@/composables/useScrollStagger'
 
-// Use scroll animation with hide-on-scroll-up enabled
-const { isVisible, targetRef } = useScrollAnimation(0.1, true)
-
+const { isVisible, targetRef, isScrollingUp } = useScrollStagger()
 const { loading, error, getLatestPosts, fetchPosts, formatDate } = useBlog()
 
 const latestPosts = getLatestPosts(3)
+
+// Get blog post animation style
+const getBlogPostStyle = (index: number) => {
+  if (isVisible.value) {
+    // Appearing: check scroll direction
+    if (isScrollingUp.value) {
+      // Scrolling up: right to left appear (2→1→0)
+      const reverseIndex = latestPosts.value.length - 1 - index
+      return { transitionDelay: `${600 + reverseIndex * 200}ms` }
+    } else {
+      // Scrolling down: left to right appear (0→1→2)
+      return { transitionDelay: `${600 + index * 200}ms` }
+    }
+  } else {
+    // Disappearing: always right to left (2→1→0)
+    const reverseIndex = latestPosts.value.length - 1 - index
+    return { transitionDelay: `${100 + reverseIndex * 100}ms` }
+  }
+}
 
 onMounted(() => {
   fetchPosts()
@@ -150,6 +166,20 @@ onMounted(() => {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  line-clamp: 3;
   overflow: hidden;
+}
+
+.btn-primary {
+  background-color: rgb(37 99 235); /* bg-primary-600 */
+  color: white;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem; /* py-3 px-6 */
+  border-radius: 0.5rem; /* rounded-lg */
+  transition: background-color 0.15s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: rgb(29 78 216); /* hover:bg-primary-700 */
 }
 </style>

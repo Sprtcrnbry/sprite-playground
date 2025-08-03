@@ -2,7 +2,7 @@
   <header class="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50 transition-all duration-300">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
-        <!-- Logo with black color -->
+        <!-- Logo -->
         <div class="flex-shrink-0">
           <RouterLink
             to="/"
@@ -12,66 +12,67 @@
           </RouterLink>
         </div>
 
-        <!-- Desktop Navigation -->
-        <div class="ml-10 flex items-baseline space-x-8">
-          <RouterLink
-            to="/"
-            class="px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
-            :class="getNavLinkClass('Home')"
-          >
-            Home
-            <span
-              class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-500 to-purple-500 group-hover:w-full transition-all duration-300"
-            ></span>
-          </RouterLink>
+        <!-- Desktop Navigation - Hidden on mobile, shown on desktop -->
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8">
+            <RouterLink
+              to="/"
+              class="px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
+              :class="getNavLinkClass('Home')"
+            >
+              Home
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-500 to-purple-500 group-hover:w-full transition-all duration-300"
+              ></span>
+            </RouterLink>
 
-          <a
-            href="#features"
-            @click="handleFeaturesClick"
-            class="text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors relative group"
-          >
-            Features
-            <span
-              class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-500 to-purple-500 group-hover:w-full transition-all duration-300"
-            ></span>
-          </a>
+            <a
+              href="#features"
+              @click="handleFeaturesClick"
+              class="text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors relative group"
+            >
+              Features
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-500 to-purple-500 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
 
-          <!-- Add Blog link -->
-          <RouterLink
-            to="/blog"
-            class="px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
-            :class="getNavLinkClass('Blog')"
-          >
-            Blog
-            <span
-              class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-500 to-purple-500 group-hover:w-full transition-all duration-300"
-            ></span>
-          </RouterLink>
+            <RouterLink
+              to="/blog"
+              class="px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
+              :class="getNavLinkClass('Blog')"
+            >
+              Blog
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-500 to-purple-500 group-hover:w-full transition-all duration-300"
+              ></span>
+            </RouterLink>
 
-          <RouterLink
-            to="/about"
-            class="px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
-            :class="getNavLinkClass('About')"
-          >
-            About
-            <span
-              class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-500 to-purple-500 group-hover:w-full transition-all duration-300"
-            ></span>
-          </RouterLink>
+            <RouterLink
+              to="/about"
+              class="px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
+              :class="getNavLinkClass('About')"
+            >
+              About
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-500 to-purple-500 group-hover:w-full transition-all duration-300"
+              ></span>
+            </RouterLink>
 
-          <RouterLink
-            to="/contact"
-            class="px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
-            :class="getNavLinkClass('Contact')"
-          >
-            Contact
-            <span
-              class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-500 to-purple-500 group-hover:w-full transition-all duration-300"
-            ></span>
-          </RouterLink>
+            <RouterLink
+              to="/contact"
+              class="px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
+              :class="getNavLinkClass('Contact')"
+            >
+              Contact
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-500 to-purple-500 group-hover:w-full transition-all duration-300"
+              ></span>
+            </RouterLink>
+          </div>
         </div>
 
-        <!-- Dark mode toggle and CTA -->
+        <!-- Desktop Dark mode toggle and CTA - Hidden on mobile -->
         <div class="hidden md:flex items-center space-x-4">
           <!-- Dark Mode Toggle -->
           <button
@@ -108,7 +109,7 @@
           <RouterLink to="/contact" class="btn-primary"> Get Started </RouterLink>
         </div>
 
-        <!-- Mobile menu button -->
+        <!-- Mobile menu section - Shown on mobile, hidden on desktop -->
         <div class="md:hidden flex items-center space-x-2">
           <!-- Mobile dark mode toggle -->
           <button
@@ -139,6 +140,7 @@
             </svg>
           </button>
 
+          <!-- Mobile menu hamburger button -->
           <button
             @click="mobileMenuOpen = !mobileMenuOpen"
             class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white focus:outline-none p-2 transition-colors"
@@ -169,7 +171,7 @@
         </div>
       </div>
 
-      <!-- Mobile Navigation -->
+      <!-- Mobile Navigation Menu - Shows/hides based on mobileMenuOpen -->
       <Transition
         enter-active-class="transition-all duration-300 ease-out"
         enter-from-class="opacity-0 transform -translate-y-4"
@@ -189,6 +191,13 @@
             >
               Home
             </RouterLink>
+            <a
+              href="#features"
+              @click="handleFeaturesClick"
+              class="block px-3 py-2 text-base font-medium rounded-lg transition-colors hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-900 dark:text-white"
+            >
+              Features
+            </a>
             <RouterLink
               to="/blog"
               class="block px-3 py-2 text-base font-medium rounded-lg transition-colors hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-900 dark:text-white"
@@ -209,6 +218,13 @@
               @click="mobileMenuOpen = false"
             >
               Contact
+            </RouterLink>
+            <RouterLink
+              to="/contact"
+              class="btn-primary w-full mt-4"
+              @click="mobileMenuOpen = false"
+            >
+              Get Started
             </RouterLink>
           </div>
         </div>
