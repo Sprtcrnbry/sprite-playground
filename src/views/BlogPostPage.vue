@@ -119,7 +119,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, watch } from 'vue'
+import { onMounted, watch, computed } from 'vue' // ← Added 'computed' to imports
 import { useRoute, RouterLink } from 'vue-router'
 import { useBlog } from '@/composables/useBlog'
 
